@@ -1,8 +1,6 @@
 //grid-generate
 var totalRows = 25;
-var totalCols = 45;
-const startCell = [11, 15];
-const endCell = [11,25];
+var totalCols = 42;
 
 function generateGrid( rows, cols ) {
     let grid = "<table>";
@@ -21,6 +19,9 @@ let myGrid = generateGrid( totalRows, totalCols);
 $( "#tableContainer" ).append( myGrid );
 
 // grid-working-implementation
+const startCell = [11, 14];
+const endCell = [11,25];
+
 function implementGrid( walls ) {
     var cells = $("#tableContainer").find("td");
     var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
@@ -39,5 +40,88 @@ function implementGrid( walls ) {
         }
     }
 }
-// callling guncction implementGrid
+// callling function implementGrid
 implementGrid();
+
+// grid functioning(wall-vreation)
+var createWalls = false;
+var movingStart = false;
+var movingEnd = false;
+var inProgress = false;
+
+$("body").mouseup(function() {
+    createWalls = false;
+    movingStart = false;
+    movingEnd = false;
+});
+
+/*click-function*/
+$("td").click(function() {
+    var index = $("td").index(this);
+    var startCellIndex = (startCell[0] * (totalCols)) +startCell[1];
+    var endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
+    if((inProgress ==false) && !(index == startCellIndex) && !(index == endCellIndex)) {
+        if(finished) {
+            clearBoard(walls = true);
+            finished = false;
+        }
+    } $(this).toggleClass("wall");
+});
+
+/*mouseup event*/
+$("td").mouseup(function() {
+    createWalls = false;
+    movingStart = false;
+    movingEnd = false;
+    inProgress = false;
+    finished = false;
+});
+
+/*mousedown event*/
+$("td").mousedown(function() {
+    var index = $("td").index( this );
+    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    if(!inProgress) {
+        //board will be finished if finished
+        if(finished && !inProgress) {
+             clearBoard( walls = true);
+             finished = false;
+        }
+        if(index == startCellIndex) {
+            movingStart = true;
+        }
+        else if(index == endCellIndex) {
+            movingEnd = true;
+        }
+        else {
+            createWalls = true;
+        }
+    }
+});
+
+$("td").mouseenter(function() {
+    if(!createWalls && !movingStart && !movingEnd) {
+        return;
+    }
+    var index = $("td").index(this);
+    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    if(!inProgress) {
+        if(finished) {
+            clearBoard( walls = true);
+            finished = false;
+        }
+        if(movingStart  && index != endCellIndex) {
+            moveStartOrEnd(startCellIndex, index, "start");
+        }
+        else if(movingEnd && index != startCell) {
+            moveStartOrEnd(endCellIndex, index, "end");
+        }
+        else if(index != startCellIndex && index != endCellIndex) {
+            $(this).toggleClass("wall");
+        }
+    }
+});
+
+
