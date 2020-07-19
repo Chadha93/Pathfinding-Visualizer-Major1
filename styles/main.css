@@ -5,6 +5,11 @@ td {
 }
 
 .start{
-    background-color: green;
-    border-color: green;
+    background-color: #09f809;
+    border-color: #09f809;
+}
+
+.end{
+    background-color: #ff0000;
+    border-color: #ff0000;
 }
