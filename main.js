@@ -1,7 +1,13 @@
-//grid-generate
+// Global-Variables
 var totalRows = 25;
 var totalCols = 42;
+var createWalls = false;
+var movingStart = false;
+var movingEnd = false;
+var inProgress = false;
+var algorithm = false;
 
+//grid-generate
 function generateGrid( rows, cols ) {
     let grid = "<table>";
     for ( row = 1; row <= rows; row++ ) {
@@ -44,39 +50,6 @@ function implementGrid( walls ) {
 implementGrid();
 
 // grid functioning(wall-vreation)
-var createWalls = false;
-var movingStart = false;
-var movingEnd = false;
-var inProgress = false;
-
-$("body").mouseup(function() {
-    createWalls = false;
-    movingStart = false;
-    movingEnd = false;
-});
-
-/*click-function*/
-$("td").click(function() {
-    var index = $("td").index(this);
-    var startCellIndex = (startCell[0] * (totalCols)) +startCell[1];
-    var endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
-    if((inProgress ==false) && !(index == startCellIndex) && !(index == endCellIndex)) {
-        if(finished) {
-            clearBoard(walls = true);
-            finished = false;
-        }
-    } $(this).toggleClass("wall");
-});
-
-/*mouseup event*/
-$("td").mouseup(function() {
-    createWalls = false;
-    movingStart = false;
-    movingEnd = false;
-    inProgress = false;
-    finished = false;
-});
-
 /*mousedown event*/
 $("td").mousedown(function() {
     var index = $("td").index( this );
@@ -100,7 +73,17 @@ $("td").mousedown(function() {
     }
 });
 
-$("td").mouseenter(function() {
+/*mouseup event*/
+$("td").mouseup(function() {
+    createWalls = false;
+    movingStart = false;
+    movingEnd = false;
+    inProgress = false;
+    finished = false;
+});
+
+/*mouse-hovering-while-mousedown*/
+$("td").mouseenter(function() { 
     if(!createWalls && !movingStart && !movingEnd) {
         return;
     }
@@ -123,5 +106,43 @@ $("td").mouseenter(function() {
         }
     }
 });
+
+/*click-function*/
+$("td").click(function() {
+    var index = $("td").index(this);
+    var startCellIndex = (startCell[0] * (totalCols)) +startCell[1];
+    var endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
+    if((inProgress ==false) && !(index == startCellIndex) && !(index == endCellIndex)) {
+        if(finished) {
+            clearBoard(walls = true);
+            finished = false;
+        }
+    } $(this).toggleClass("wall");
+});
+
+/*mouse-releasr*/
+$("body").mouseup(function() {
+    createWalls = false;
+    movingStart = false;
+    movingEnd = false;
+});
+
+// buttons
+$("#start-btn").click(function() {
+    if(algorithm == null)
+    {
+        return;
+    }
+    if(inProgress)
+    {
+        update("maze");
+        return;
+    }
+    traverseGraph(algorithm);
+});
+
+
+
+
 
 
