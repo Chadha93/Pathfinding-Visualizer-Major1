@@ -5,7 +5,11 @@ var createWalls = false;
 var movingStart = false;
 var movingEnd = false;
 var inProgress = false;
+var finished = false;
 var algorithm = false;
+var cellsToAnimate = [];
+var animationState = null;
+var animationSpeed = "Fast";
 
 //grid-generate
 function generateGrid( rows, cols ) {
@@ -29,11 +33,11 @@ const startCell = [11, 14];
 const endCell = [11,25];
 
 function implementGrid( walls ) {
-    var cells = $("#tableContainer").find("td");
-    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
-    var endCellIndex = (endCell[0]*(totalCols)) + endCell[1];
-    for(var i = 0; i< cells.length; i++) {
-        var isWall = $(cells[i]).hasClass("wall");
+    let cells = $("#tableContainer").find("td");
+    let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    let endCellIndex = (endCell[0]*(totalCols)) + endCell[1];
+    for(let i = 0; i< cells.length; i++) {
+        let isWall = $(cells[i]).hasClass("wall");
         $(cells[i]).removeClass();
         if (i == startCellIndex) {
             $(cells[i]).addClass("start");
@@ -52,9 +56,9 @@ implementGrid();
 // grid functioning(wall-vreation)
 /*mousedown event*/
 $("td").mousedown(function() {
-    var index = $("td").index( this );
-    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
-    var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    let index = $("td").index( this );
+    let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    let  endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     if(!inProgress) {
         //board will be finished if finished
         if(finished && !inProgress) {
@@ -87,9 +91,9 @@ $("td").mouseenter(function() {
     if(!createWalls && !movingStart && !movingEnd) {
         return;
     }
-    var index = $("td").index(this);
-    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
-    var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    let index = $("td").index(this);
+    let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     if(!inProgress) {
         if(finished) {
             clearBoard( walls = true);
@@ -109,9 +113,9 @@ $("td").mouseenter(function() {
 
 /*click-function*/
 $("td").click(function() {
-    var index = $("td").index(this);
-    var startCellIndex = (startCell[0] * (totalCols)) +startCell[1];
-    var endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
+    let index = $("td").index(this);
+    let startCellIndex = (startCell[0] * (totalCols)) +startCell[1];
+    let endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
     if((inProgress ==false) && !(index == startCellIndex) && !(index == endCellIndex)) {
         if(finished) {
             clearBoard(walls = true);
@@ -141,7 +145,74 @@ $("#start-btn").click(function() {
     traverseGraph(algorithm);
 });
 
+// Runner-function-of-grid(wall-making)
+function delay() {
+    let run;
+    run = 5;
+    console.log("Delay = " + run);
+    return run;
+}
 
+function createDistance() {
+    let distance =[];
+    for(let i = 0; i< totalRows; i++) {
+        let row = [];
+        for(let j = 0; j< totalCols; i++) {
+            row.push(Number.POSITIVE_INFINITY);//property
+        }
+        distance.push(row);
+    }
+    return distance;
+}
+
+function createPrev() {
+    let prev = [];
+    for (let index = 0; i< totalRows; i++) {
+        let element = [];
+        for(let j = 0; j< totalCols; j++) {
+            row.push(null);
+        }
+        prev.push(row);
+    }
+    return prev;
+}
+
+function getneighbours(i, j) {
+    let neighbours = [];
+    if(i > 0) {
+        neighbours.push( [i-1,j] );
+    }
+    if(j > 0) {
+        neighbours.push( [i, j-1] );
+    }
+    if(i < (totalRows -1) )
+    {
+        neighbours.push([i+1,j] );
+    }
+    if(j < (totalCols -1))
+    {
+        neighbours.push([i,j + 1] );
+    }
+    return neighbours;
+}
+
+// cell-animation
+async function animate() {
+    animationState = null;
+    let cells= $("#tableContainer").find("td");
+    let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+    let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
+    let getdelay = delay();
+
+    for( let i = 0; i<cellsToAnimate.length; i++) {
+        let cellCoordinates = cellsToAnimate[i][0];
+        let x = cellCoordinates[0];
+        let y = cellCoordinates[1];
+        let num = (x * (totalCols)) + y;
+
+    }
+}
 
 
 
