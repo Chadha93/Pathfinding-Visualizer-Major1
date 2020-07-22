@@ -1,2 +1,2 @@
 # Major-1
-Lets visualize Data Structure and Algorithms.
+Lets visualize Data Structure and Algorithms
