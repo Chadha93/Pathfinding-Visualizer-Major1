@@ -250,4 +250,28 @@ function runAlgo() {
     return pathfound;
 }
 
+function createvisited(){
+    let visited = [];
+    let cells = $('#tableContainer').find("td");
+    for(let i = 0; i< totalRows; i++) {
+        let roe =[];
+        for(var j =0; j<totalCols; j++) {
+            if(cellWall(i,j,cells)) {
+                row.push(true);
+            }
+            else {
+                row.push(false);
+            }
+        }
+        visited.push(row);
+    }
+    return visited;
+}
+
+function cellWall(i, j, cells) {
+    let cellNum = (i * (totalCols)) + j;
+    return $(cells[cellNum]).hasClass("wall");
+}
+
+
 
