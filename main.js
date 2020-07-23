@@ -195,7 +195,6 @@ function getneighbours(i, j) {
     }
     return neighbours;
 }
-<<<<<<< HEAD
 
 // cell-animation
 async function animate() {
@@ -217,26 +216,6 @@ async function animate() {
         }
         let cell = cells[num];
         let color = cellsToAnimate[i][1];
-=======
-
-// cell-animation
-async function animate() {
-    animationState = null;
-    let cells= $("#tableContainer").find("td");
-    let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
-    let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
-    let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
-    let getdelay = delay();
-
-    for( let i = 0; i<cellsToAnimate.length; i++) {
-        let cellCoordinates = cellsToAnimate[i][0];
-        let x = cellCoordinates[0];
-        let y = cellCoordinates[1];
-        let num = (x * (totalCols)) + y;
-
-    }
-}
->>>>>>> 1ba8d379b5c3f682ae1f701776ad8b1882636d5a
 
         // Promise Object
         await new Promise(resolve => setTimeout(resolve, delay));
