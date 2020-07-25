@@ -297,4 +297,3 @@ function cellWall(i, j, cells) {
 }
 
 
-
