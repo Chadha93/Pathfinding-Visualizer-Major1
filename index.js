@@ -8,4 +8,4 @@ function include(file) {
 }
 include('grid/main.js');
 include('base/object.js'); 
-include('algorithms/dijkstra');
+include('algorithms/dijkstra.js');

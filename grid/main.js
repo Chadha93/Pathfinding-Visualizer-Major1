@@ -139,10 +139,30 @@ $("#start-btn").click(function() {
     }
     if(inProgress)
     {
-        update("maze");
+        update("wait");
         return;
     }
     traverseGraph(algorithm);
+});
+
+// update button
+function updatestartBtnText(){
+    if(algorithm == "Dijkstra"); {
+    $("#start-btn").html("start Dijkstra");
+    }
+    return;
+}
+
+
+//nav function
+$("#algorithms .dropdown-item").click(function() {
+    if(inProgress) {
+        update("wait");
+        return;
+    }
+    algorithm = $(this).text();
+    updatestartBtnText();
+    console.log("algorithm has changed to " + algorithm);
 });
 
 // Runner-function-of-grid(wall-making)
@@ -153,31 +173,31 @@ function delay() {
     return run;
 }
 
-function createDistance() {
-    let distance =[];
+function createDistances() {
+    let distances =[];
     for(let i = 0; i< totalRows; i++) {
         let row = [];
-        for(let j = 0; j< totalCols; i++) {
+        for(let j = 0; j< totalCols; j++) {
             row.push(Number.POSITIVE_INFINITY);//property
         }
-        distance.push(row);
+        distances.push(row);
     }
-    return distance;
+    return distances;
 }
 
 function createPrev() {
     let prev = [];
-    for (let index = 0; i< totalRows; i++) {
-        let element = [];
+    for (let i = 0; i< totalRows; i++) {
+        let row = [];
         for(let j = 0; j< totalCols; j++) {
-            row.push(null);
+            row = [];
         }
         prev.push(row);
     }
     return prev;
 }
 
-function getneighbours(i, j) {
+function getNeighbors(i, j) {
     let neighbours = [];
     if(i > 0) {
         neighbours.push( [i-1,j] );
@@ -215,7 +235,7 @@ async function animate() {
             continue;
         }
         let cell = cells[num];
-        let color = cellsToAnimate[i][1];
+        let colorClass = cellsToAnimate[i][1];
 
         // Promise Object
         await new Promise(resolve => setTimeout(resolve, delay));
@@ -232,29 +252,32 @@ async function animate() {
 // graph-traversal
 async function traverseGraph(algorithm) {
     inProgress = true;
-    clearBoard(walls = true);
+    implementGrid(walls = true);
     let startTime = Date.now();
     let pathfound = runAlgo();
     let endTime = Date.now();
-    await animate()
-    if(pathfound) {
-        updateResults((endTime - startTime), true, countLength());
-    }
+    await animate();
+    // if(pathfound) {
+    //     updateResults((endTime - startTime), true, countLength());
+    // }
+    // else {
+    //     updateResults((endTime - startTime), false, countLength());
+    // }
     inProgress = false;
     finished = true;
 }
 
 function runAlgo() {
-    algorithm == "Dijstra";
-    let pathfound = dijstra();
+    algorithm == "Dijkstra";
+    let pathfound = dijkstra();
     return pathfound;
 }
 
-function createvisited(){
+function createVisited(){
     let visited = [];
     let cells = $('#tableContainer').find("td");
     for(let i = 0; i< totalRows; i++) {
-        let roe =[];
+        let row =[];
         for(var j =0; j<totalCols; j++) {
             if(cellWall(i,j,cells)) {
                 row.push(true);
