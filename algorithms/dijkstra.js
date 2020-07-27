@@ -1,6 +1,6 @@
 function dijkstra() {
 	var pathFound = false;
-	var myHeap = new minHeap();
+	var myHeap = new MinHeap();
 	var prev = createPrev();
 	var distances = createDistances();
 	var visited = createVisited();
