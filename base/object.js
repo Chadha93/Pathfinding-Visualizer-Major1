@@ -42,7 +42,7 @@ function MinHeap() {
 
 	//childnodes
 	this.children = function(index) {
-		return [(index * 2) + 1,(index * 2) +2];
+		return [(index * 2) + 1,(index *2)+2];
 	}
 	this.GoDown = function(index) {
 		let children = this.children(index);
