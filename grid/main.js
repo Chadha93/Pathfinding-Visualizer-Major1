@@ -62,7 +62,7 @@ $("td").mousedown(function() {
     if(!inProgress) {
         //board will be finished if finished
         if(finished && !inProgress) {
-             clearBoard( walls = true);
+             implementGrid( walls = true);
              finished = false;
         }
         if(index == startCellIndex) {
@@ -96,7 +96,7 @@ $("td").mouseenter(function() {
     let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     if(!inProgress) {
         if(finished) {
-            clearBoard( walls = true);
+            implementGrid( walls = true);
             finished = false;
         }
         if(movingStart  && index != endCellIndex) {
@@ -118,7 +118,7 @@ $("td").click(function() {
     let endCellIndex = (startCell[0] * (totalCols)) + endCell[1];
     if((inProgress ==false) && !(index == startCellIndex) && !(index == endCellIndex)) {
         if(finished) {
-            clearBoard(walls = true);
+            implementGrid(walls = true);
             finished = false;
         }
     } $(this).toggleClass("wall");
@@ -165,6 +165,17 @@ $("#algorithms .dropdown-item").click(function() {
     console.log("algorithm has changed to " + algorithm);
 });
 
+// Used to display error messages
+function update(message){
+	$("#resultsIcon").removeClass();
+	$("#resultsIcon").addClass("fas fa-exclamation");
+	$('#results').css("background-color", "red");
+	$("#length").text("");
+	if (message == "wait"){
+		$("#duration").text("Please wait for the algorithm to finish.");
+	}
+}
+
 // Runner-function-of-grid(wall-making)
 function delay() {
     let run;
@@ -198,22 +209,22 @@ function createPrev() {
 }
 
 function getNeighbors(i, j) {
-    let neighbours = [];
+    let neighbors = [];
     if(i > 0) {
-        neighbours.push( [i-1,j] );
+        neighbors.push( [i-1, j] );
     }
     if(j > 0) {
-        neighbours.push( [i, j-1] );
+        neighbors.push( [i, j-1] );
     }
     if(i < (totalRows -1) )
     {
-        neighbours.push([i+1,j] );
+        neighbors.push([i+1, j] );
     }
     if(j < (totalCols -1))
     {
-        neighbours.push([i,j + 1] );
+        neighbors.push([i,j + 1] );
     }
-    return neighbours;
+    return neighbors;
 }
 
 // cell-animation
@@ -221,7 +232,6 @@ async function animate() {
     animationState = null;
     let cells= $("#tableContainer").find("td");
     let startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
-
     let endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     let getdelay = delay();
 
@@ -238,7 +248,7 @@ async function animate() {
         let colorClass = cellsToAnimate[i][1];
 
         // Promise Object
-        await new Promise(resolve => setTimeout(resolve, delay));
+        await new Promise(resolve => setTimeout(resolve, getdelay));
 
         // calling-classes
         $(cell).removeClass();
@@ -257,20 +267,16 @@ async function traverseGraph(algorithm) {
     let pathfound = runAlgo();
     let endTime = Date.now();
     await animate();
-    // if(pathfound) {
-    //     updateResults((endTime - startTime), true, countLength());
-    // }
-    // else {
-    //     updateResults((endTime - startTime), false, countLength());
-    // }
+  
     inProgress = false;
     finished = true;
 }
 
 function runAlgo() {
-    algorithm == "Dijkstra";
+    if(algorithm == "Dijkstra") {                  
     let pathfound = dijkstra();
     return pathfound;
+    }
 }
 
 function createVisited(){
