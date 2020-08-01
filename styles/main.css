@@ -20,6 +20,15 @@ ul {
 	list-style-type: none;
 }
 
+#myNavbar{
+	position: fixed;
+	top: 0;
+	right: 0px;
+	left: 250px;
+	z-index: 1030;
+	background-image: linear-gradient(#2980b9, #2c3e50);
+}
+
 .btn-space {
 	margin-right: 5px;
 }
@@ -110,4 +119,60 @@ ul {
 
 .fun-fact {
 	color: darkgreen;
+}
+ 
+#user{
+	text-align: right;
+}
+
+/* sidebar */
+.sidebar {
+	position: fixed;
+	width: 250px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	background-image: linear-gradient(#2c3e50, #3498db);
+	padding-top: 50px;
+}
+
+.sidebar h1 {
+	display: block;
+	padding: 10px 20px;
+	color: #fff;
+	text-decoration: none;
+	font-family: "Roboto";
+	letter-spacing: 2px;
+	font-weight: 600;
+	margin: 0;
+	font-size: 25px;
+	text-transform: uppercase;
+}
+
+.sidebar h3 {
+	display: block;
+	padding: 10px 20px;
+	color: #fff;
+	text-decoration: none;
+	font-family: "Roboto";
+	letter-spacing: 2px;
+	font-weight: 400;
+	margin: 0;
+	font-size: 25px;
+	text-transform: uppercase;
+}
+
+.sidebar a {
+	display: block;
+	padding: 10px 20px;
+	color: rgb(247, 241, 241);
+	text-decoration: none;
+	font-family: "Roboto";
+	letter-spacing: 2px;
+}
+
+.sidebar a:hover {
+	color: #fff;
+	margin-left: 20px;
+	transition: 0.4s;
 }
