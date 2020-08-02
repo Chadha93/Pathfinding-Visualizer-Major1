@@ -122,7 +122,17 @@ ul {
 }
  
 #user{
-	text-align: right;
+	position: absolute;
+	right: 0;
+	margin-right: 80px;
+	color: #fff;
+}
+
+#logoid{
+	position: absolute;
+	right: 0;
+	margin-right: 20px;
+	height: 35px ;
 }
 
 /* sidebar */
@@ -175,4 +185,11 @@ ul {
 	color: #fff;
 	margin-left: 20px;
 	transition: 0.4s;
+	font-family: "Roboto";
 }
+
+#tableContainer {
+	margin-right: 4em;
+	margin-left: 20em;
+}
+

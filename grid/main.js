@@ -1,6 +1,6 @@
 // Global-Variables
 var totalRows = 25;
-var totalCols = 42;
+var totalCols = 60;
 var createWalls = false;
 var movingStart = false;
 var movingEnd = false;
@@ -29,8 +29,8 @@ let myGrid = generateGrid( totalRows, totalCols);
 $( "#tableContainer" ).append( myGrid );
 
 // grid-working-implementation
-const startCell = [11, 14];
-const endCell = [11,25];
+const startCell = [12, 14];
+const endCell = [12,45];
 
 function implementGrid( walls ) {
     let cells = $("#tableContainer").find("td");
