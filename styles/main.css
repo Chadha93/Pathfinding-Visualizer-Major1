@@ -26,7 +26,7 @@ ul {
 	right: 0px;
 	left: 250px;
 	z-index: 1030;
-	background-image: linear-gradient(#2980b9, #2c3e50);
+	background: #43425D;
 }
 
 .btn-space {
@@ -142,8 +142,7 @@ ul {
 	left: 0;
 	top: 0;
 	bottom: 0;
-	background-image: linear-gradient(#2c3e50, #3498db);
-	padding-top: 50px;
+	background: #43425D;
 }
 
 .sidebar h1 {
@@ -161,7 +160,7 @@ ul {
 
 .sidebar h3 {
 	display: block;
-	padding: 10px 20px;
+	padding: 5px 20px;
 	color: #fff;
 	text-decoration: none;
 	font-family: "Roboto";
@@ -191,5 +190,21 @@ ul {
 #tableContainer {
 	margin-right: 4em;
 	margin-left: 20em;
+}
+
+#Vbtn {
+	position: relative;
+	display: block;
+	margin-top: 20px;
+	margin-left: 48em;
+	margin-right: 1px;
+	border-radius: 20px;
+	width: 200px;
+	height: 60px;
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 2px;
+	border: #43425D;
+	background: #43425D;
 }
 
