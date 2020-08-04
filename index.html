@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
+
 	<!-- sidebar starts-->
 	<div class="sidebar">
 		<h1>Dashboard</h1>
@@ -13,40 +14,81 @@
 		<a href="#">algo</a>
 	</div>
 	<!-- sidebar ends -->
+
+	<!--navbar starts-->
 	<nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="myNavbar">
-  
 		<div class="collapse navbar-collapse" id="navbarSupportedx	Content">
-	    	<ul class="navbar-nav mr-auto">
-		      	<li class="nav-item dropdown" id="algorithms">
-		        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          	Algorithms
-		        	</a>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown" id="algorithms">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Algorithms</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<!-- <a class="dropdown-item" href="#">A*</a> -->
 						<a class="dropdown-item" href="#">Dijkstra</a>
 					</div>
-						</li>
-						<button class="btn btn-outline-success btn-space" type="submit" id="start-btn">Start</button>
-						<h4 id="user">User</h4>
-						<img id="logoid" src="styles/assets/user light.png">
-				</nav>
-		 <div><h2 style="text-align: center;">Overview</h2></div>
-	<!-- <div class="algo"><button type="submit" id="start-btn">Dijstraj-Algotithm</button></div>
-	<div style="text-align: center;">Grid</div> -->
+				</li>
+				<button class="btn btn-outline-success btn-space" type="submit" id="start-btn">Start</button>
+			</ul>
+			<h4 id="user">User</h4>
+			<img id="logoid" src="styles/assets/user light.png">
+		</div>
+	</nav>
+	<!--navbar ends-->
 
-	<!-- grid-generate -->
-		<div class="d-flex flex-column align-items-center "id="bigTableContainer">
+	<!--overiew starts-->
+	<div class="d-flex flex-row flex-wrap m-2 justify-content-around">	
+		<div class="d-flex p-2">
+			<div class="key wall"></div>  
+			<div> Wall</div>
+		</div>
+		<div class="d-flex p-2">
+			<div class="key start"></div>  
+			<div>Start</div>
+		</div>
+		<div class="d-flex p-2">
+			<div class="key end"></div>  
+			<div>Target</div>
+		</div>
+		<div class="d-flex p-2">
+			<div class="key searching"></div>  
+			<div class="key visited"></div>  
+			<div>Visited</div>
+		</div>
+		<div class="d-flex p-2">
+			<div class="key success"></div>  
+			<div>Shortest-Path</div>
+		</div>
+		<div class="d-flex p-2">
+			<div class="key"></div>  
+			<div>Unvisited</div>
+		</div>
+	</div>
+
+	<!-- <div class="keys">
+		<ul id="overview">
+			<li>start node</li>
+			<li>end node</li>
+			<li>wall</li>
+			<li>visited node</li>
+			<li>unvisited node</li>
+		</ul>
+	</div> -->
+	<!--overview ends-->
+
+	<!--grid generate starts-->
+	<div class="d-flex flex-column align-items-center "id="bigTableContainer">
 		<div id="tableContainer"></div>
-	 </div>
+	</div>
+	<!--grid generation ends-->
+	
+	<!-- execution btn starts-->
+	<div>
+		<button id="Vbtn">Visualize</button>
+	</div>
+	<!--execution btn ends-->
 
-	 <!-- execution btn -->
-	 <div>
-		 <button id="Vbtn">Visualize</button>
-	 </div>
-	 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 

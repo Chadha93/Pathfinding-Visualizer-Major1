@@ -208,3 +208,16 @@ ul {
 	background: #43425D;
 }
 
+ul#overview li {
+	display: inline;
+	color:red;
+	text-align: center;
+}
+
+.keys {
+	margin-left: 23em;
+	margin-right: 12em;
+}
+
+
+
