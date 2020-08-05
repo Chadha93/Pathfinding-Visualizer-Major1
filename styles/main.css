@@ -135,7 +135,16 @@ ul {
 	height: 35px ;
 }
 
-/* sidebar */
+.head-txt {
+	margin-right: 50%;
+	color: #fff;
+	padding-top: 10px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	font-family: "Roboto";
+}
+
+/* sidebar starts */
 .sidebar {
 	position: fixed;
 	width: 250px;
@@ -147,7 +156,7 @@ ul {
 
 .sidebar h1 {
 	display: block;
-	padding: 10px 20px;
+	padding: 20px 20px;
 	color: #fff;
 	text-decoration: none;
 	font-family: "Roboto";
@@ -160,7 +169,7 @@ ul {
 
 .sidebar h3 {
 	display: block;
-	padding: 5px 20px;
+	padding: 60px 20px;
 	color: #fff;
 	text-decoration: none;
 	font-family: "Roboto";
@@ -173,7 +182,7 @@ ul {
 
 .sidebar a {
 	display: block;
-	padding: 10px 20px;
+	padding: 20px 20px;
 	color: rgb(247, 241, 241);
 	text-decoration: none;
 	font-family: "Roboto";
@@ -186,6 +195,7 @@ ul {
 	transition: 0.4s;
 	font-family: "Roboto";
 }
+/* sidebar ends */
 
 #tableContainer {
 	margin-right: 4em;
