@@ -155,7 +155,7 @@ function updatestartBtnText(){
 
 
 //nav function
-$("#algorithms .dropdown-item").click(function() {
+$("#algorithms").click(function() {
     if(inProgress) {
         update("wait");
         return;
