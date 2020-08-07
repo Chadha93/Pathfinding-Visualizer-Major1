@@ -52,14 +52,14 @@ ul {
 
 .searching {
 	transition : background-color 0.08s ease-in-out;
-	background-color: #1cd4b5;
-	border-color: #1cd4b5;
+	background-color: #3D94B4;
+	border-color: #3D94B4;
 }
 
 .visited {
 	transition : background-color 0.08s ease-in-out;
-	background-color: #e89440;
-	border-color: #e89440;
+	background-color: #19BAEB;
+	border-color: #19BAEB;
 }
 
 .success {
@@ -218,15 +218,13 @@ ul {
 	background: #43425D;
 }
 
-ul#overview li {
-	display: inline;
-	color:red;
-	text-align: center;
+#overview {
+	margin-left: 15em;
+	padding: 2px 10px 0px 10px;
 }
 
-.keys {
-	margin-left: 23em;
-	margin-right: 12em;
+#keys {
+	padding-right: 20px;
 }
 
 
