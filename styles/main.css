@@ -136,7 +136,7 @@ ul {
 }
 
 .head-txt {
-	margin-right: 50%;
+	padding: 2px 100px 0px 35% ;
 	color: #fff;
 	padding-top: 10px;
 	font-weight: 700;
@@ -206,8 +206,6 @@ ul {
 	position: relative;
 	display: block;
 	margin-top: 20px;
-	margin-left: 48em;
-	margin-right: 1px;
 	border-radius: 20px;
 	width: 200px;
 	height: 60px;
@@ -226,6 +224,8 @@ ul {
 #keys {
 	padding-right: 20px;
 }
+
+
 
 
 
