@@ -1,2 +1,2 @@
 Lets visualize Data Structure and Algorithms
-ok testing
+Currently running on https://chadha93.github.io/Pathfinding-Visualizer-Major1/
