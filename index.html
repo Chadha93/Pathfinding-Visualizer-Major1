@@ -4,6 +4,9 @@
 	<title>Visualizer</title>
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+	
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 </head>
 <body>
 	<!-- sidebar starts-->
@@ -21,11 +24,15 @@
 	<nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="myNavbar">
 		<div class="collapse navbar-collapse" id="navbarSupportedx	Content">
 			<p class="head-txt">Pathfinding Visualizer</p>
-		<button id="user" onclick="Login()">Login</button>
+		<a id="user" href="auth/login.html"><button>Login</button></a>
 			<img id="logoid" src="styles/assets/user light.png">
 		</div>
 	</nav>
 	<!--navbar ends-->
+
+	<!-- <h1>login</h1>
+<div id="firebaseui-auth-container"></div>
+<div id="loader">Loading...</div> -->
 
 	<!--overiew starts-->
 	<div id="overview" class="d-flex flex-row flex-wrap  justify-content-center">	
@@ -70,18 +77,9 @@
 	</div>
 	<!--execution btn ends-->
 
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
-	<script type="text/javascript" src="firebase/index.js"></script>
-	<script type="text/javascript" src="firebase/login.js"></script>
 </body>
 </html>			
