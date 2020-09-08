@@ -1,4 +1,4 @@
-var app_firebase = {};
+var app_firebase = {};  
  (function(){
   var firebaseConfig = {
     apiKey: "AIzaSyDJ3-HmZ-PH4Sl1Bk_6ISlltIIjscs5wOY",
