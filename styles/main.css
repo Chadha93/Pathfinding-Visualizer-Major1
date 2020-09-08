@@ -125,7 +125,8 @@ ul {
 	position: absolute;
 	right: 0;
 	margin-right: 80px;
-	color: #fff;
+	color:#fff;
+	background:#43425D;
 }
 
 #logoid{
