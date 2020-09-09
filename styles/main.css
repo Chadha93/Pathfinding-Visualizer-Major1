@@ -121,12 +121,17 @@ ul {
 	color: darkgreen;
 }
  
-#user{
+ #user{
 	position: absolute;
 	right: 0;
 	margin-right: 80px;
 	color:#fff;
 	background:#43425D;
+}
+
+.user_btn {
+	background:#43425D;
+	color: #fff;
 }
 
 #logoid{
