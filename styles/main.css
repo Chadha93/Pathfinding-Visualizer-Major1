@@ -121,7 +121,31 @@ ul {
 	color: darkgreen;
 }
  
- #user{
+ /* #user{
+	position: absolute;
+	right: 0;
+	margin-right: 80px;
+	color:#fff;
+	background:#43425D;
+} */
+
+#user_in{
+	position: absolute;
+	right: 0;
+	margin-top: 16em;
+	margin-right: 42em;
+	margin-left: 50em;
+	color:#fff;
+	background:#43425D;
+}	
+
+.user_btn_in {
+	background:#43425D;
+	color: #fff;
+}
+
+
+#user{
 	position: absolute;
 	right: 0;
 	margin-right: 80px;
@@ -209,7 +233,7 @@ ul {
 }
 
 .Vbtn {
-	position: relative;
+	/* position: relative;
 	display: block;
 	margin-top: 20px;
 	border-radius: 20px;
@@ -219,7 +243,13 @@ ul {
 	font-weight: 600;
 	letter-spacing: 2px;
 	border: #43425D;
-	background: #43425D;
+	background: #43425D; */
+	position: absolute;
+	right: 0;
+	margin-top: 20px;
+	margin-right: 42em;
+	color:#fff;
+	background:#43425D;
 }
 
 #overview {
@@ -231,7 +261,12 @@ ul {
 	padding-right: 20px;
 }
 
-
+#setter{
+	padding-top: 15px;
+	max-width: 72em;
+	/* margin-right: 20em; */
+	margin-left: 20em;
+}
 
 
 
