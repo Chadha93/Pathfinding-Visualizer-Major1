@@ -145,17 +145,22 @@ $("#start-btn").click(function() {
     traverseGraph(algorithm);
 });
 
+
+
 // update button
 function updatestartBtnText(){
-    if(algorithm == "Dijkstra"); {
-    $("#start-btn").html("start Dijkstra");
+    if(algorithm == "Dijkstra") {
+        $("#start-btn").html("start Dijkstra");
+    }
+    else if(algorithm == "A*") {
+        $("#start-btn").html("start A*");
     }
     return;
 }
 
 
 //nav function
-$("#algorithms").click(function() {
+$(".algorithms").click(function() {
     if(inProgress) {
         update("wait");
         return;
@@ -274,9 +279,12 @@ async function traverseGraph(algorithm) {
 
 function runAlgo() {
     if(algorithm == "Dijkstra") {                  
-    let pathfound = dijkstra();
-    return pathfound;
+        var pathfound = dijkstra();
     }
+    else if(algorithm == "A*") {
+        var pathfound = AStar();
+    }
+    return pathfound;
 }
 
 function createVisited(){
