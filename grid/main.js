@@ -152,10 +152,17 @@ function updatestartBtnText(){
     if(algorithm == "Dijkstra") {
         $("#start-btn").html("start Dijkstra");
     }
+    else if(algorithm == "Breadth-First-Search") {
+        $("#start-btn").html("Start Breadth-First-Search")
+    }
     else if(algorithm == "A*") {
         $("#start-btn").html("start A*");
     }
+    else if(algorithm == "Depth-First-Search") {
+        $("#start-btn").html("start Depth-First-Search");
+    }
     return;
+
 }
 
 
@@ -283,6 +290,13 @@ function runAlgo() {
     }
     else if(algorithm == "A*") {
         var pathfound = AStar();
+    }
+    else if(algorithm == "Breadth-First-Search") {
+        var pathfound = BFS();
+    }
+    else if(algorithm == "Depth-First-Search") {
+        var visited = createVisited();
+        var pathfound = DFS(startCell[0], startCell[1], visited);
     }
     return pathfound;
 }

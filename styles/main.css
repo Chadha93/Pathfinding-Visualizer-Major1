@@ -117,6 +117,7 @@ ul {
 	margin-left: 20px;
 }
 
+
 .fun-fact {
 	color: darkgreen;
 }
@@ -233,21 +234,10 @@ ul {
 }
 
 .Vbtn {
-	/* position: relative;
-	display: block;
-	margin-top: 20px;
-	border-radius: 20px;
-	width: 200px;
-	height: 60px;
-	color: #fff;
-	font-weight: 600;
-	letter-spacing: 2px;
-	border: #43425D;
-	background: #43425D; */
 	position: absolute;
 	right: 0;
 	margin-top: 20px;
-	margin-right: 42em;
+	margin-right: 86em;
 	color:#fff;
 	background:#43425D;
 }
@@ -267,6 +257,7 @@ ul {
 	/* margin-right: 20em; */
 	margin-left: 20em;
 }
+
 
 
 

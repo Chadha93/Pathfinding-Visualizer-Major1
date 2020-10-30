@@ -73,3 +73,21 @@ function MinHeap() {
 		return;
 	}
 }
+
+function Queue() { 
+	this.stack = new Array();
+	this.dequeue = function(){
+		 return this.stack.pop(); 
+	} 
+	this.enqueue = function(item){
+		 this.stack.unshift(item);
+		 return;
+	}
+	this.empty = function(){
+		return ( this.stack.length == 0 );
+	}
+	this.clear = function(){
+		this.stack = new Array();
+		return;
+	}
+ }
